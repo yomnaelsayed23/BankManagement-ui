@@ -1,0 +1,79 @@
+/* Container styling */
+.login-form-container {
+  max-width: 450px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 50px 40px; /* Increased padding for a spacious feel */
+  border-left: 5px solid #00796b; /* Vertical accent for a unique touch */
+}
+
+/* Title styling */
+.form-title {
+  color: #00796b; /* Primary color for the title */
+  font-size: 1.9rem;
+  margin-bottom: 30px; /* Increased space for emphasis */
+  font-weight: 600; /* Stronger emphasis */
+  text-align: left; /* Aligned to left for a modern look */
+}
+
+/* Label styling */
+.form-label {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px; /* More space below labels */
+  font-size: 1rem; /* Consistent font size */
+}
+
+/* Input field styling */
+.form-control {
+  border-radius: 4px; /* Subtle rounding for a sharp look */
+  border: 1px solid #bdbdbd; /* Light border color for a soft appearance */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Smooth transitions */
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #f9f9f9; /* Slightly off-white background for inputs */
+}
+
+.form-control:focus {
+  border-color: #00796b; /* Consistent with primary color */
+  box-shadow: 0 0 6px rgba(0, 121, 107, 0.3); /* Subtle glow */
+}
+
+/* Error message styling */
+.error-message p {
+  color: #d32f2f; /* Brighter red for warnings */
+  font-size: 0.875rem;
+  margin-top: 10px;
+  font-weight: 400; /* Lighter weight for subtlety */
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #00796b; /* Deep green/teal for a professional look */
+  border-color: #00796b;
+  border-radius: 4px;
+  padding: 14px; /* Taller button for a modern look */
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+}
+
+.btn-primary:hover {
+  background-color: #004d40; /* Darker shade on hover */
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Sign-up link styling */
+.signup-link a {
+  color: #00796b;
+  font-weight: 500; /* Slightly bolded for visibility */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.signup-link a:hover {
+  color: #004d40; /* Darker shade on hover */
+  text-decoration: underline;
+}

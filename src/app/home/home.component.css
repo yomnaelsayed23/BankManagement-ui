@@ -1,0 +1,28 @@
+.user-info {
+  margin-bottom: 20px;
+}
+
+.transaction-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transaction-table th, .transaction-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.transaction-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.btn-close {
+  background-color: transparent;
+  border: none;
+}

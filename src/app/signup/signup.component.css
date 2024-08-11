@@ -1,0 +1,79 @@
+/* Page container styling */
+.register-page {
+  height: 100vh;
+  background-color: #f4f6f9; /* Light background for contrast */
+  padding: 20px;
+}
+
+/* Form container styling */
+.register-form {
+  width: 100%;
+  max-width: 500px; /* Increased width for a comfortable layout */
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  border-left: 5px solid #00796b; /* Vertical accent for brand identity */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Form title styling */
+.form-title {
+  color: #00796b; /* Primary color for brand consistency */
+  font-size: 2rem;
+  margin-bottom: 30px; /* Spacious title */
+}
+
+/* Label styling */
+.form-label {
+  color: #333;
+  font-weight: 600; /* Bolder labels for importance */
+  margin-bottom: 8px;
+}
+
+/* Input field styling */
+.form-control {
+  border-radius: 6px; /* Subtle rounding */
+  border: 1px solid #ced4da;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #f9f9f9; /* Soft background for input fields */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  border-color: #00796b; /* Consistent with brand color */
+  box-shadow: 0 0 8px rgba(0, 121, 107, 0.3);
+}
+
+/* Error message styling */
+.error-message p {
+  color: #d32f2f; /* Bright red for visibility */
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 500; /* Slightly bolder for importance */
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #00796b;
+  border-color: #00796b;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600; /* Bolder button text */
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #005f56; /* Darker shade on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .register-form {
+    width: 90%;
+    padding: 30px;
+  }
+}
