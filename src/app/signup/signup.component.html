@@ -7,7 +7,7 @@
       <input type="text" formControlName="full_name" class="form-control form-control-lg" id="full_name">
       <div class="error-message mt-2" *ngIf="registerForm.get('full_name')?.errors && registerForm.get('full_name')?.touched">
         <p *ngIf="registerForm.get('full_name')?.getError('required')">Name is required</p>
-        <p *ngIf="registerForm.get('full_name')?.getError('minlength')">Name must be at least 20 characters</p>
+        <p *ngIf="registerForm.get('full_name')?.getError('minlength')">Name must be at least 15 characters</p>
         <p *ngIf="registerForm.get('full_name')?.getError('maxlength')">Name cannot exceed 60 characters</p>
       </div>
     </div>
@@ -22,12 +22,12 @@
     </div>
 
     <div class="mb-4">
-      <label for="Phone" class="form-label fs-6 fw-semibold">Phone Number</label>
-      <input type="text" formControlName="Phone" class="form-control form-control-lg" id="Phone">
-      <div class="error-message mt-2" *ngIf="registerForm.get('Phone')?.errors && registerForm.get('Phone')?.touched">
-        <p *ngIf="registerForm.get('Phone')?.getError('required')">Phone number is required</p>
-        <p *ngIf="registerForm.get('Phone')?.getError('minlength')">Phone number must be exactly 11 digits</p>
-        <p *ngIf="registerForm.get('Phone')?.getError('maxlength')">Phone number cannot exceed 11 digits</p>
+      <label for="phone" class="form-label fs-6 fw-semibold">Phone Number</label>
+      <input type="text" formControlName="phone" class="form-control form-control-lg" id="phone">
+      <div class="error-message mt-2" *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+        <p *ngIf="registerForm.get('phone')?.getError('required')">Phone number is required</p>
+        <p *ngIf="registerForm.get('phone')?.getError('minlength')">Phone number must be exactly 11 digits</p>
+        <p *ngIf="registerForm.get('phone')?.getError('maxlength')">Phone number cannot exceed 11 digits</p>
       </div>
     </div>
 
@@ -38,6 +38,7 @@
         <p *ngIf="registerForm.get('password')?.getError('required')">Password is required</p>
       </div>
     </div>
+
 
     <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary w-100 fs-5">Sign Up</button>
   </form>

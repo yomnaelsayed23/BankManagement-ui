@@ -1,50 +1,53 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
-
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgIf } from '@angular/common';
-
-import { Router } from '@angular/router';
-
+import { Router, RouterLink } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
+import { CommonModule, NgClass } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-signin',
   standalone: true,
   imports: [
-    RouterLink,
-
-    RouterLink,
-
+    CommonModule,
     ReactiveFormsModule,
-    NgIf,
-
+    FormsModule,
+    RouterLink,
+    NgClass,
+    HttpClientModule, // Ensure this is correctly imported
   ],
   templateUrl: './signin.component.html',
-  styleUrl: './signin.component.css'
+  styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
+  error: string = '';
 
+  constructor(
+    private _Router: Router,
+    private authService: AuthService
+  ) {}
 
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
 
-constructor(private router:Router){}
-
-loginForm :FormGroup = new FormGroup({
-email: new FormControl ('',[Validators.required,Validators.email]),
-password : new FormControl('' ,[Validators.required])
-});
-
-
-submitLogin(loginForm:FormGroup){
-  console.log(loginForm);
-
-   if (this.loginForm.valid) {
-  localStorage.setItem('email', JSON.stringify(this.loginForm.get('email')?.value));
-  localStorage.setItem('password',  JSON.stringify(this.loginForm.get('password')?.value));
-
-  this.router.navigate(['/home']);
-  console.log(loginForm.value);
-
-}
-}
+  submitLogin() {
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (result) => {
+          if (result) {
+            const token = result.token;
+            this.authService.saveToken(token);
+            this._Router.navigate(['/home']);
+          } else {
+            this.error = 'Login failed, please try again';
+          }
+        },
+        error: (err) => {
+          this.error = 'Invalid email or password';
+        }
+      });
+    }
+  }
 }

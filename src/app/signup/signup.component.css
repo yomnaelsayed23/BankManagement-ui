@@ -70,6 +70,7 @@
   transform: translateY(-2px); /* Subtle lift effect */
 }
 
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .register-form {
