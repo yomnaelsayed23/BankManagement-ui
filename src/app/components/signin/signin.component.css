@@ -1,0 +1,87 @@
+/* Container styling */
+.login-form-container {
+  width: 100%;
+  max-width: 500px; /* Matches the width of the sign-up form */
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 12px; /* Same border-radius as sign-up form */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Same shadow for consistency */
+  padding: 40px; /* Matches padding with the sign-up form */
+  border-left: 5px solid #00796b; /* Vertical accent for brand identity */
+}
+
+/* Title styling */
+.login-title {
+  color: #00796b; /* Primary color for brand consistency */
+  font-size: 2rem;
+  margin-bottom: 30px; /* Spacious title */
+  font-weight: 600; /* Stronger emphasis */
+  text-align: left; /* Aligned to left for a modern look */
+}
+
+/* Label styling */
+.form-label {
+  color: #333;
+  font-weight: 600; /* Bolder labels for importance */
+  margin-bottom: 8px;
+}
+
+/* Input field styling */
+.form-control {
+  border-radius: 6px; /* Subtle rounding for consistency */
+  border: 1px solid #ced4da;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #f9f9f9; /* Soft background for input fields */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  border-color: #00796b; /* Consistent with brand color */
+  box-shadow: 0 0 8px rgba(0, 121, 107, 0.3);
+}
+
+/* Error message styling */
+.error-message p {
+  color: #d32f2f; /* Bright red for visibility */
+  font-size: 0.875rem;
+  margin-top: 10px;
+  font-weight: 500; /* Slightly bolder for importance */
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #00796b;
+  border-color: #00796b;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600; /* Bolder button text */
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #005f56; /* Darker shade on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Sign-up link styling */
+.signup-link a {
+  color: #00796b;
+  font-weight: 500; /* Slightly bolded for visibility */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.signup-link a:hover {
+  color: #004d40; /* Darker shade on hover */
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .login-form-container {
+    width: 90%;
+    padding: 30px;
+  }
+}

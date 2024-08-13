@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
 import { CommonModule, NgClass } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-signin',
