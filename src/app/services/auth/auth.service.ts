@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders,} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, throwError } from "rxjs";
+import { catchError, map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,10 @@ export class AuthService {
   // Signup method
   signup(user: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(`${this.apiUrl}/register`, user, { headers });
+    return this.http.post(`${this.apiUrl}/register`, user, { headers })
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   // Login method
@@ -33,7 +36,8 @@ export class AuthService {
             this.saveToken(token);
           }
           return response.body;
-        })
+        }),
+        catchError(this.handleError)
       );
   }
 
@@ -55,5 +59,11 @@ export class AuthService {
   // Logout method
   logout() {
     localStorage.removeItem(this.tokenKey);
+  }
+
+  // Handle errors
+  private handleError(error: any): Observable<never> {
+    console.error('An error occurred:', error); // for demo purposes only
+    return throwError(() => new Error('Something went wrong; please try again later.'));
   }
 }

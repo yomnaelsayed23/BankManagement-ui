@@ -1,123 +1,30 @@
+<!-- src/app/home/home.component.html -->
+<div class="account-details">
+  <h2>Account Details</h2>
+  <p><strong>Account ID:</strong> {{ account.id }}</p>
+  <p><strong>Card Number:</strong> {{ account.cardNumber }}</p>
+  <p><strong>CVV:</strong> {{ account.cvv }}</p>
+  <p><strong>Balance:</strong> ${{ account.balance.toFixed(2) }}</p>
 
-<div class="bankhome container my-5 w-50 m-auto p-5 border border-info rounded">
- 
-  <div class="user-info">
-    <h2>User Information</h2>
-    <p><strong>Name:</strong> {{ user.name }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Cart Number:</strong> {{ user.cartNum }}</p>
-  </div>
-  <hr>
-  <div class="transaction-table">
-    <h3>Transaction History</h3>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Transaction ID</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Credit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let transaction of transactions; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ transaction.id }}</td>
-          <td>{{ transaction.date | date }}</td>
-          <td>{{ transaction.amount | currency }}</td>
-          <td>{{ transaction.credit }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- <div class="transactions">
-    <div class="col col-md-6">
-      <div class="card" style="background: linear-gradient(3deg, #686f77, #d0ded5);border-radius: 10px;">
-        <div class="card-header">
-          <div class="card-body">
-
-              <div class="input-group">
-                <label class="input-group-text" style="font-size: 20px;margin-right:5%;border-radius: 10px">ID Account : </label>
-                <input type="text" formControlName="accountId" class="form-control" style="font-size: 20px;border-radius: 10px">
-
-              </div>
-         
-
-              <div class="mb-2 mt-3" style="font-size: 20px;">
-                <label style="border-radius: 20px;margin: 0% 3%;padding: 3%;">ID Account :  </label>
-                <label><strong>jndcjjjjjjjjjjj5555555555</strong></label>
-              </div>
-              <div class="mb-2 mt-3" style="font-size: 20px;">
-                <label style="border-radius: 20px;margin: 0% 3%;padding: 3%;">Balance :</label>
-                <label><strong>accountDetails.balance  DH</strong></label>
-              </div>
-              <table class="table" style="font-size: 20px;">
-                <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Type</th>
-                  <th>Amount</th>
-                  <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <tr >
-                  <td>operationDate</td>
-                  <td>type</td>
-                  <td class="text-end">amount</td>
-                  <td>description</td>
-                </tr>
-                </tbody>
-              </table>
-              <ul class="nav nav-pills">
-                <li>
-                  <a
-                     class="btn ms-1 ">page</a>
-                </li>
-              </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="bank-btn ">
-
-<button class="btn btn-primary" (click)="addNewCart()"> Add New Cart Number</button>
-  </div> -->
-<!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCardModal">
-  Add New Card
-</button>
-
-<!-- The Modal -->
-<div class="modal fade" id="addCardModal" tabindex="-1" aria-labelledby="addCardModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h5 class="modal-title" id="addCardModalLabel">Add New Card</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <form (ngSubmit)="addCard()">
-          <div class="mb-3">
-            <label for="cardNumber" class="form-label">Card Number</label>
-            <input type="text" class="form-control" id="cardNumber" [(ngModel)]="newCard.cardNumber" name="cardNumber" required>
-          </div>
-          <div class="mb-3">
-            <label for="cardHolder" class="form-label">Card Holder Name</label>
-            <input type="text" class="form-control" id="cardHolder" [(ngModel)]="newCard.cardHolder" name="cardHolder" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Add Card</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+  <h3>Transactions</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of account.transactions">
+        <td>{{ transaction.date }}</td>
+        <td>{{ transaction.type }}</td>
+        <td [ngClass]="{ 'negative': transaction.amount < 0 }">
+          ${{ transaction.amount.toFixed(2) }}
+        </td>
+        <td>{{ transaction.description }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

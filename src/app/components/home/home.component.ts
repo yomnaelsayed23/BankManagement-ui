@@ -1,6 +1,7 @@
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { AccountService } from '../../services/account/account.service';
 
 @Component({
   selector: 'app-home',
@@ -15,42 +16,42 @@ import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms'
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  account: any;
 
- 
-  newCard = {
-    cardNumber: '',
-    cardHolder: ''
-  };
+  constructor(private accountService: AccountService) {}
 
-  constructor() { }
-
-  addCard() {
-    // Here you would usually make a service call to save the card details
-    console.log('Card Added:', this.newCard);
-    // After adding the card, reset the form and close the modal
-    this.newCard = { cardNumber: '', cardHolder: '' };
-    let modal = document.getElementById('addCardModal');
-    if (modal) {
-      (modal as any).modal('hide');
-    }
+  ngOnInit(): void {
+    this.account = this.accountService.getAccountDetails();
   }
 
 
-  user = {
-    name: 'yomna',
-    email: 'yomna@example.com',
-    cartNum: 888855555877775,
-  };
+  // addCard() {
+  //   // Here you would usually make a service call to save the card details
+  //   console.log('Card Added:', this.newCard);
+  //   // After adding the card, reset the form and close the modal
+  //   this.newCard = { cardNumber: '', cardHolder: '' };
+  //   let modal = document.getElementById('addCardModal');
+  //   if (modal) {
+  //     (modal as any).modal('hide');
+  //   }
+  }
 
-  transactions = [
-    { id: 'T001', date: new Date('2023-08-10'), amount: 150.00, credit: 'Visa' },
-    { id: 'T002', date: new Date('2023-08-11'), amount: 200.00, credit: 'MasterCard' },
-    { id: 'T003', date: new Date('2023-08-12'), amount: 100.00, credit: 'Visa' },
+
+  // user = {
+  //   name: 'yomna',
+  //   email: 'yomna@example.com',
+  //   cartNum: 888855555877775,
+  // };
+
+  // transactions = [
+  //   { id: 'T001', date: new Date('2023-08-10'), amount: 150.00, credit: 'Visa' },
+  //   { id: 'T002', date: new Date('2023-08-11'), amount: 200.00, credit: 'MasterCard' },
+  //   { id: 'T003', date: new Date('2023-08-12'), amount: 100.00, credit: 'Visa' },
    
-  ];
+  // ];
 
-  addNewCart(){
+  // addNewCart(){
 
-  }
-}
+  // }
+

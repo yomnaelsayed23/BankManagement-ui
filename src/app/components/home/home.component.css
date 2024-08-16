@@ -1,28 +1,36 @@
-.user-info {
-  margin-bottom: 20px;
+/* src/app/home/home.component.css */
+.account-details {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
-.transaction-table table {
+h2, h3 {
+  color: #333;
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.transaction-table th, .transaction-table td {
+table, th, td {
   border: 1px solid #ddd;
-  padding: 8px;
 }
 
-.transaction-table th {
-  background-color: #f2f2f2;
+th, td {
+  padding: 8px;
   text-align: left;
 }
 
-.modal-content {
-  padding: 20px;
+th {
+  background-color: #f2f2f2;
 }
 
-.btn-close {
-  background-color: transparent;
-  border: none;
+td.negative {
+  color: red;
 }
