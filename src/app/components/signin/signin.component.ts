@@ -21,6 +21,7 @@ import { AuthService } from "../../services/auth/auth.service";
 })
 export class SigninComponent {
   error: string = '';
+  isLogin:boolean= false;
 
   constructor(
     private _Router: Router,
@@ -38,6 +39,7 @@ export class SigninComponent {
         next: (result) => {
           if (result) {
             const token = result.token;
+
             this.authService.saveToken(token);
             this._Router.navigate(['/home']);
           } else {

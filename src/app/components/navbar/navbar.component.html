@@ -7,16 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" routerLink="/home">Home</a>
+          <a class="nav-link active text-dark" aria-current="page" routerLink="/home" *ngIf="isLogin">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/signin">Sign In</a>
+          <a class="nav-link text-dark" routerLink="/signin" *ngIf="!isLogin">Sign In</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/signup">Sign Up</a>
+          <a class="nav-link text-dark" routerLink="/signup" *ngIf="!isLogin">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" href="#">Logout</a>
+          <a class="nav-link text-danger" routerLink="/signin" (click)="logOut()" *ngIf="isLogin">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/profile" *ngIf="isLogin">Profile</a>
         </li>
       </ul>
     </div>

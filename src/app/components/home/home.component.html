@@ -1,4 +1,10 @@
 <!-- src/app/home/home.component.html -->
+ <div class=" container d-flex justify-content-end ">
+
+   <button class="btn btn-success rounded mt-5  py-3 p-5 " > Add New CardNumber</button>
+ </div>
+<div  *ngFor="let account of accounts" class="my-5">
+
 <div class="account-details">
   <h2>Account Details</h2>
   <p><strong>Account ID:</strong> {{ account.id }}</p>
@@ -27,4 +33,5 @@
       </tr>
     </tbody>
   </table>
+</div>
 </div>

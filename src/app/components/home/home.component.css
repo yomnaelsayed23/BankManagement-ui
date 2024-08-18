@@ -7,7 +7,12 @@
   border-radius: 8px;
   background-color: #f9f9f9;
 }
-
+.account-header {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
 h2, h3 {
   color: #333;
 }
